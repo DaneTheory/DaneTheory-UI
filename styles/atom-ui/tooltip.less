@@ -1,0 +1,46 @@
+.tooltip {
+  @tooltip-offset: .4em;
+
+  .customizable-property(font-family, font-family);
+  .customizable-property(font-size, base-font-size);
+  .general-transition(font-size);
+  padding: 0 !important;
+  opacity: 1 !important;
+
+  &.top {
+    margin-top: -@tooltip-offset;
+  }
+
+  &.right {
+    margin-left: @tooltip-offset;
+  }
+
+  &.bottom {
+    margin-top: @tooltip-offset;
+  }
+
+  &.left {
+    margin-left: -@tooltip-offset;
+  }
+
+  .tooltip-inner {
+    .customizable-property(background, opaque-accent);
+    .customizable-property(color, accent-text-color);
+    .general-transition(background, color;);
+    padding: .25em .5em;
+    max-width: none;
+    white-space: nowrap;
+    border-radius: 0;
+  }
+
+  .tooltip-arrow {
+    display: none;
+  }
+
+  // Repeating .keystroke is necessary due to specificity issues.
+  .keystroke.keystroke {
+    &:extend(kbd);
+    .customizable-property(background, opaque-active-accent) !important;
+    .customizable-property(color, active-accent-text-color) !important;
+  }
+}

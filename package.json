@@ -1,0 +1,242 @@
+{
+  "author": {
+    "name": "Branden Dane",
+    "email": "DaneTheory@gmail.com",
+    "url": "https://DaneTheory.com"
+  },
+  "bugs": {
+    "url": "https://github.com/DaneTheory/DaneTheory-UI/issues"
+  },
+  "bundleDependencies": false,
+  "configSchema": {
+    "general": {
+      "type": "object",
+      "title": "General settings",
+      "properties": {
+        "background": {
+          "type": "string",
+          "title": "Background",
+          "enum": [
+            "Image",
+            "Solid color"
+          ],
+          "description": "Customize your background image when the image background is selected with the \"Pure: Background images\" command in the command palette, or Packages > Pure > Background images.",
+          "default": "Image",
+          "order": 1
+        },
+        "fontFamily": {
+          "type": "string",
+          "title": "Font family",
+          "default": "Open Sans, system-ui",
+          "order": 2
+        },
+        "baseFontSize": {
+          "type": "integer",
+          "title": "Base font size (px)",
+          "default": 15,
+          "minimum": 1,
+          "order": 3
+        },
+        "statusBarFontSize": {
+          "type": "string",
+          "title": "Status bar font size",
+          "default": ".9rem",
+          "order": 4
+        },
+        "scrollbarWidth": {
+          "type": "string",
+          "title": "Scrollbar width",
+          "default": ".6rem",
+          "order": 5
+        },
+        "settingsDelay": {
+          "type": "boolean",
+          "title": "Delay when changing some settings",
+          "description": "Factor in a small, artificial delay when changing some settings. This can make changing some settings feel less responsive, but helps prevent awkward mishaps.",
+          "default": true,
+          "order": 6
+        }
+      }
+    },
+    "imageBackground": {
+      "type": "object",
+      "title": "Image background",
+      "properties": {
+        "workspaceAlpha": {
+          "type": "number",
+          "title": "Overlay alpha",
+          "description": "The alpha channel of the dark overlay of the background image.",
+          "default": 0.85,
+          "minimum": 0,
+          "maximum": 1,
+          "order": 1
+        },
+        "accent": {
+          "type": "color",
+          "title": "Accent",
+          "default": "white",
+          "order": 2
+        },
+        "accentAlpha": {
+          "type": "number",
+          "title": "Accent alpha",
+          "default": 0.1,
+          "minimum": 0,
+          "maximum": 1,
+          "order": 3
+        },
+        "selectNewImagesFrom": {
+          "type": "string",
+          "title": "Select new images from",
+          "description": "The images to choose from when automatically selecting a new image. If you don't have any custom images, Pure will use the default images instead.",
+          "enum": [
+            "Custom images",
+            "Default images",
+            "Both"
+          ],
+          "default": "Custom images",
+          "order": 4
+        },
+        "selectNewImageOnLaunch": {
+          "type": "boolean",
+          "title": "Select a new image on launch",
+          "default": true,
+          "order": 5
+        },
+        "slideshow": {
+          "type": "boolean",
+          "title": "Select a new image periodically",
+          "default": true,
+          "order": 6
+        },
+        "slideshowDuration": {
+          "type": "string",
+          "title": "Select a new image every",
+          "enum": [
+            "30 minutes",
+            "1 hour",
+            "2 hours",
+            "4 hours",
+            "6 hours"
+          ],
+          "default": "1 hour",
+          "order": 7
+        },
+        "animate": {
+          "type": "boolean",
+          "title": "Animate background",
+          "default": true,
+          "order": 8
+        },
+        "performanceWarning": {
+          "type": "boolean",
+          "title": "Warn of potential performance issues",
+          "description": "Using custom images of large file sizes may cause performance issues.",
+          "default": true,
+          "order": 9
+        }
+      }
+    },
+    "solidBackground": {
+      "type": "object",
+      "title": "Solid color background",
+      "properties": {
+        "workspaceColor": {
+          "type": "color",
+          "title": "Background",
+          "default": "black",
+          "order": 1
+        },
+        "accent": {
+          "type": "color",
+          "title": "Accent",
+          "default": "rgb(51, 51, 51)",
+          "order": 2
+        },
+        "adjustAccentAutomatically": {
+          "type": "boolean",
+          "title": "Adjust accent automatically",
+          "description": "Automatically pick a new accent color when you change your background color.",
+          "default": true,
+          "order": 3
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "color": "^3.1.0",
+    "delay": "^4.1.0",
+    "docrel": "^1.6.0",
+    "fs-extra": "^7.0.0",
+    "mem": "^4.0.0",
+    "random-item": "^1.0.0"
+  },
+  "deprecated": false,
+  "description": "🏞️🌆🌈 DaneTheory Design System: The ultimate minimalist with all the feels. (UI for Atom)",
+  "devDependencies": {
+    "snazzy": "^8.0.0",
+    "standard": "^12.0.1"
+  },
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/DaneTheory/DaneTheory-UI#readme",
+  "keywords": [
+    "danetheory",
+    "danetheory-ui",
+    "design",
+    "design-ui",
+    "ui",
+    "atom",
+    "atom theme",
+    "theme",
+    "minimalist",
+    "customizable",
+    "image",
+    "dark",
+    "light",
+    "ui",
+    "pure",
+    "min",
+    "theme",
+    "minimalism",
+    "background image",
+    "customisable",
+    "customization",
+    "customisation",
+    "image",
+    "black",
+    "white",
+    "dynamic",
+    "adaptive",
+    "ultimate",
+    "ultra",
+    "smart",
+    "intelligent",
+    "adapt",
+    "powerful",
+    "elegant",
+    "gorgeous",
+    "beautiful",
+    "ultra-minimalist",
+    "ultra-customizable",
+    "ultra-customisable",
+    "background",
+    "intuitive",
+    "customizable background",
+    "customisable background"
+  ],
+  "license": "MIT",
+  "main": "scripts/index",
+  "name": "@danetheory/danetheory-ui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaneTheory/DaneTheory-UI.git"
+  },
+  "scripts": {
+    "lint": "standard \"scripts/**/*.js\" --global atom | snazzy && standard \"build/**/*.js\" \"styles/**/*.js\" | snazzy"
+  },
+  "theme": "ui",
+  "version": "1.0.4",
+  "private": false
+}

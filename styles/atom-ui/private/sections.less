@@ -1,0 +1,15 @@
+section, .section {
+  &.bordered {
+    border: none;
+  }
+
+  .section-heading {
+    color: inherit !important;
+    font-weight: normal !important;
+
+    &.icon::before {
+      // Attempt to vertically center icons in headings.
+      bottom: .25em;
+    }
+  }
+}

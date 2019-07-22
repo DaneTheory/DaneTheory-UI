@@ -1,0 +1,113 @@
+.tab-bar .tab {
+  .general-transition(background, color;);
+  flex: 1 !important;
+  min-width: 3em !important;
+  max-width: none !important;
+  padding: .5em 1.5em;
+  font-size: inherit;
+  text-align: center;
+
+  &:not(:only-child) {
+    .interactive-transition(flex, background, color;);
+  }
+
+  &.active {
+    flex: 2 !important;
+  }
+
+  .close-icon {
+    .interactive-transition(opacity);
+    top: 50% !important;
+    right: 1em !important;
+    transform: translateY(-50%);
+
+    &::before {
+      position: relative;
+      height: .5rem;
+      width: .5rem;
+      bottom: .05rem;
+      left: .2rem;
+      font-size: .8rem;
+      visibility: hidden;
+      .interactive-transition(visibility);
+    }
+  }
+
+  &.active {
+    &:not(:only-child) {
+      .customizable-property(background, accent);
+
+      &, &:hover .close-icon {
+        .customizable-property(color, accent-text-color);
+      }
+
+      &.modified:not(:hover) .close-icon {
+        .customizable-property(background, accent-text-color);
+      }
+    }
+
+    .title {
+      padding: 0;
+    }
+  }
+
+  &:not(.modified) .close-icon {
+    opacity: 0;
+  }
+
+  &:hover .close-icon {
+    opacity: 1;
+
+    &::before {
+      visibility: visible;
+    }
+  }
+
+  &:not(.active), .close-icon {
+    cursor: pointer;
+  }
+
+  &.modified {
+    &:not(:hover) {
+      .close-icon {
+        // If the height and width are half-pixel values, Chromium may round one
+        // of them up but the other one down, making the icon look oblong
+        // instead of circle.
+        .customizable-property(height, tab-modified-icon-size) !important;
+        .customizable-property(width, tab-modified-icon-size) !important;
+        .customizable-property(background, workspace-text-color);
+        .general-transition(height, width, background;);
+        border: none;
+        font-size: .8em;
+        border-radius: 100%;
+      }
+
+      &.active .close-icon {
+        .customizable-property(color, accent-text-color);
+      }
+    }
+
+    &:hover .close-icon {
+      .customizable-property(color, workspace-text-color);
+      .general-transition(color);
+    }
+  }
+
+  &.is-dragging .close-icon {
+    display: none;
+  }
+}
+
+.tab-bar .placeholder {
+  .customizable-property(background, workspace-text-color) !important;
+
+  &::before {
+    @width: .2em;
+    width: @width;
+    margin: -@width / 2;
+  }
+
+  &::after {
+    display: none;
+  }
+}

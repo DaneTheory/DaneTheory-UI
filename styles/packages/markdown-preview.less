@@ -1,0 +1,32 @@
+.markdown-preview:not([data-use-github-style]) {
+  padding: 1em;
+  background: none;
+
+  &, h1, h2, h3, h4, h5, h6, strong, blockquote {
+    color: inherit;
+  }
+
+  del {
+    .customizable-property(color, subtle-workspace-text-color);
+    .general-transition(color);
+  }
+
+  atom-text-editor {
+    .customizable-property(background, accent);
+    .general-transition(background);
+    border-radius: 0;
+
+    div {
+      background: none !important;
+    }
+  }
+}
+
+.markdown-preview[data-use-github-style] {
+  padding: 2em;
+  font-size: inherit;
+
+  atom-text-editor {
+    border-radius: .5em;
+  }
+}

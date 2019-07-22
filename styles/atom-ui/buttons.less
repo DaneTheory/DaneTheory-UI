@@ -1,0 +1,52 @@
+.button-type(@type) {
+  @background-variable: 'pure-@{type}-color';
+
+  background: @@background-variable;
+
+  &:hover, &:active, &:focus, &.selected {
+    background: darken(@@background-variable, 20%);
+  }
+}
+
+.btn {
+  .customizable-property(font-size, base-font-size) !important;
+  .general-transition(background, color, font-size;);
+  .interactive-transition(background, color;);
+  height: auto !important;
+  border: none !important;
+  line-height: inherit !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  // These styles are duplicates of styles the buttons already have, but
+  // them being here is necessary for styles to properly inherit from .btn
+  // to make things look like buttons.
+  display: inline-block;
+  padding: 0 .5em;
+  cursor: pointer;
+
+  // Fix vertical alignment in button groups in notifications.
+  vertical-align: top;
+
+  &, &.btn-primary, &.btn-info {
+    .customizable-property(background, accent);
+    .customizable-property(color, accent-text-color);
+
+    &:hover, &:active, &:focus, &.selected {
+      .customizable-property(background, active-accent);
+      .customizable-property(color, active-accent-text-color);
+    }
+  }
+
+  &.btn-success {
+    .button-type(success);
+  }
+
+  &.btn-warning {
+    .button-type(warning);
+  }
+
+  &.btn-error {
+    .button-type(error);
+  }
+}

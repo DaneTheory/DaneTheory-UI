@@ -1,0 +1,122 @@
+.settings-view {
+  .section {
+    max-width: 45em;
+    margin: 0 auto;
+    border: none;
+  }
+
+  .section-heading, .sub-section-heading {
+    text-align: center;
+
+    &.icon::before {
+      margin-right: 1em;
+    }
+  }
+
+  .themes-picker-item, .text, p {
+    text-align: center;
+  }
+
+  .updates-heading-container {
+    flex-direction: column;
+  }
+
+  .config-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: @pure-maximum-tab-width;
+    max-width: initial;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+
+  .breadcrumb,
+  .text,
+  .section-heading,
+  .sub-section-heading,
+  .sub-section-heading::after,
+  .copy-icon {
+    color: inherit !important;
+  }
+
+  .themes-picker-item .btn {
+    &, &::before {
+      margin: 0 !important;
+    }
+  }
+
+  .setting-description {
+    .customizable-property(color, subtle-workspace-text-color);
+    .general-transition(color);
+  }
+
+  .control-label {
+    margin-bottom: .5em;
+  }
+
+  .breadcrumb {
+    padding: 1.5em 1.5em 0;
+    text-align: center;
+
+    & > li + li::before {
+      padding-left: .5em;
+      padding-right: .3em;
+    }
+  }
+
+  .sub-section .sub-section-heading, .packages .themes-label {
+    font-weight: normal;
+  }
+
+  .sub-section {
+    .sub-section-heading.has-items::after {
+      // The Octicons code for chevron-up.
+      content: "\f0a2";
+      margin-top: .25em;
+      color: inherit;
+    }
+
+    &.collapsed .sub-section-heading.has-items::after {
+      // The Octicons code for chevron-down.
+      content: "\f0a3";
+    }
+  }
+
+  .checkbox .setting-title {
+    line-height: 1;
+  }
+
+  .color .setting-title {
+    line-height: 2;
+  }
+
+  .table {
+    th, td {
+      text-align: center;
+      white-space: normal;
+    }
+  }
+
+  .package-detail {
+    .repo-link {
+      margin-bottom: 1.5em;
+      margin-left: 0;
+    }
+
+    .text {
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 1em;
+    }
+
+    .btn-wrap-group {
+      text-align: center;
+    }
+  }
+
+  .updates-btn-group {
+    line-height: inherit !important;
+  }
+}

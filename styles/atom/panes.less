@@ -1,0 +1,30 @@
+atom-pane-container {
+  @resize-handle-size: .5em;
+
+  atom-pane-axis {
+    &.vertical > atom-pane-resize-handle::before {
+      height: @resize-handle-size;
+      top: -(@resize-handle-size / 2);
+    }
+
+    &.horizontal > atom-pane-resize-handle::before {
+      width: @resize-handle-size;
+      left: -(@resize-handle-size / 2);
+    }
+  }
+
+  atom-pane .item-views {
+    &.item-views {
+      // This never has a background in Atom core, but some packages
+      // (see https://atom.io/packages/zen) give it one.
+      // The specificity of the selector is arbitrary just to really make sure
+      // the style gets applied.
+      background: none !important;
+    }
+
+    .pane-item {
+      color: inherit !important;
+      background: none !important;
+    }
+  }
+}

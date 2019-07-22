@@ -1,0 +1,172 @@
+@keyframes pure-notification-show {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pure-notification-hide {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.notification-type(@type) {
+  @background-variable: 'pure-@{type}-color';
+
+  background: @@background-variable;
+
+  .btn-@{type}, .close-all {
+    background: darken(@@background-variable, 20) !important;
+
+    &:hover {
+      background: darken(@@background-variable, 30) !important;
+    }
+  }
+}
+
+atom-notifications {
+  top: 2em;
+  padding: 1em;
+
+  atom-notification {
+    @notification-spacing: 1em;
+    @close-size: 2em;
+    // If this is increased above .36s, the hide animation will break as
+    // the notification will get destroyed before the animation finishes.
+    // See NotificationElement.prototype.removeNotificationAfterTimeout().
+    @animation-duration: .2s;
+
+    display: flex;
+    align-items: center;
+    width: 25em !important;
+    min-height: 3em;
+    max-height: 50em;
+    padding: .5em 1.5em .5em 0;
+    margin-bottom: @notification-spacing;
+    color: white;
+    word-break: break-word;
+
+    animation: pure-notification-show @animation-duration ease-out !important;
+    animation-iteration-count: initial !important;
+    animation-play-state: initial !important;
+
+    &::before, .content, .item, code {
+      background: none !important;
+      color: inherit !important;
+    }
+
+    &::after {
+      bottom: -@notification-spacing;
+      height: @notification-spacing;
+    }
+
+    &.remove {
+      animation: pure-notification-hide @animation-duration ease-in !important;
+      animation-fill-mode: forwards !important;
+    }
+
+    &.icon::before {
+      position: static !important;
+      padding: 0 1em !important;
+      margin: 0 !important;
+      width: auto !important;
+      font-size: 1.2em !important;
+    }
+
+    .item {
+      padding-left: 0;
+      border: none;
+    }
+
+    .message {
+      padding: 0 !important;
+    }
+
+    .detail, .meta {
+      padding-bottom: 0;
+      padding-right: 0;
+    }
+
+    .close {
+      .interactive-transition(opacity);
+      height: @close-size;
+      width: @close-size;
+      opacity: 0 !important;
+      line-height: @close-size;
+    }
+
+    .close-all {
+      .interactive-transition(opacity, background;);
+      top: @close-size / 4 !important;
+      right: @close-size * 1.5 !important;
+      opacity: 0;
+      color: inherit !important;
+    }
+
+    &:hover {
+      .close, .close-all {
+        opacity: 1 !important;
+      }
+    }
+
+    .detail {
+      max-height: 25em;
+
+      &::-webkit-scrollbar-thumb {
+        background: currentColor;
+      }
+    }
+
+    .btn-toolbar {
+      margin: 0 !important;
+
+      &:not(:only-child) {
+        padding-top: .5em;
+      }
+    }
+
+    .btn {
+      margin-bottom: 0 !important;
+    }
+
+    .btn-copy-report {
+      vertical-align: initial;
+    }
+
+    .stack-container .line {
+      white-space: pre-wrap !important;
+    }
+
+    .stack-toggle .icon {
+      margin-right: .5em;
+    }
+
+    &.info {
+      .notification-type(info);
+    }
+
+    &.success {
+      .notification-type(success);
+    }
+
+    &.warning {
+      .notification-type(warning);
+    }
+
+    &.error, &.fatal {
+      .notification-type(error);
+    }
+  }
+}
